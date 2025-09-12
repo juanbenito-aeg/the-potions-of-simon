@@ -139,6 +139,25 @@ function App() {
     }
   }, [success]);
 
+  // |||||||||||||||| PLAY THE SEQUENCE EVERY TIME IT IS UPDATED
+  useEffect(() => {
+    if (!isAllowedToPlay) {
+      sequence.forEach((item, index) => {
+        setTimeout(() => {
+          play({ id: colors[item].sound });
+
+          colors[item].ref.current.style.opacity = 1;
+
+          setTimeout(() => {
+            colors[item].ref.current.style.opacity = 0.5;
+          }, speed / 2);
+        }, speed * index);
+      });
+    }
+
+    setIsAllowedToPlay(true);
+  }, [sequence]);
+
   return (
     <>
       {isGameOn ? (
