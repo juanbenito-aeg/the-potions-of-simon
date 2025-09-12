@@ -90,7 +90,7 @@ function App() {
     }
   };
 
-  // |||||||||||||||| CHECK WHETHER THE PRESSED KEY IS CORRECT OR NOT
+  // |||||||||||||||| CHECK WHETHER THE KEY PRESSED IS CORRECT OR NOT
   useEffect(() => {
     if (pulses > 0) {
       const lastCorrectIndex = sequence[pulses - 1];
@@ -112,6 +112,19 @@ function App() {
       }
     }
   }, [pulses]);
+
+  // |||||||||||||||| RESET THE GAME WHEN THE KEY PRESSED IS INCORRECT
+  useEffect(() => {
+    if (!isGameOn) {
+      setSequence([]);
+      setCurrentGame([]);
+      setIsAllowedToPlay(false);
+      setSpeed(speedGame);
+      setSuccess(0);
+      setPulses(0);
+      setTurn(0);
+    }
+  }, [isGameOn]);
 
   return (
     <>
