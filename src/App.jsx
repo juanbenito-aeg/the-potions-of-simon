@@ -57,16 +57,37 @@ function App() {
 
   const initGame = () => {
     randomNumber();
+
     setIsGameOn(true);
   };
 
   const randomNumber = () => {
     setIsAllowedToPlay(false);
+
     const randomNumber = Math.floor(
       Math.random() * (maxNumber - minNumber + 1) + minNumber
     );
     setSequence([...sequence, randomNumber]);
+
     setTurn(turn + 1);
+  };
+
+  const handleClick = (index) => {
+    if (isAllowedToPlay) {
+      play({ id: colors[index].sound });
+
+      colors[index].ref.current.style.opacity = 1;
+      colors[index].ref.current.style.scale = 0.9;
+
+      setTimeout(() => {
+        colors[index].ref.current.style.opacity = 0.5;
+        colors[index].ref.current.style.scale = 1;
+
+        setCurrentGame([...currentGame, index]);
+
+        setPulses(pulses + 1);
+      }, speed / 2);
+    }
   };
 
   return (
@@ -84,7 +105,7 @@ function App() {
                   key={index}
                   ref={item.ref}
                   className={`pad pad-${index}`}
-                  style={{ backgroundColor: item.color, opacity: 0.6 }}
+                  style={{ backgroundColor: item.color, opacity: 0.5 }}
                   onClick={() => {
                     handleClick(index);
                   }}
