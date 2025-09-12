@@ -90,6 +90,29 @@ function App() {
     }
   };
 
+  // |||||||||||||||| CHECK WHETHER THE PRESSED KEY IS CORRECT OR NOT
+  useEffect(() => {
+    if (pulses > 0) {
+      const lastCorrectIndex = sequence[pulses - 1];
+
+      if (currentGame[pulses - 1] === lastCorrectIndex) {
+        setSuccess(success + 1);
+      } else {
+        play({ id: "error" });
+
+        colors[lastCorrectIndex].ref.current.style.opacity = 1;
+
+        setTimeout(() => {
+          colors[lastCorrectIndex].ref.current.style.opacity = 0.5;
+
+          setIsGameOn(false);
+        }, speed * 2);
+
+        setIsAllowedToPlay(false);
+      }
+    }
+  }, [pulses]);
+
   return (
     <>
       {isGameOn ? (
