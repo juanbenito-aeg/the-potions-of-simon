@@ -16,7 +16,7 @@
 }
 
 .center-container {
-  position: absolute; /* RELATIVE TO WHAT? */
+  position: absolute;
   border-radius: 300px;
   background-color: black;
   width: 600px;
