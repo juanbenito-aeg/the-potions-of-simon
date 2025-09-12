@@ -126,6 +126,19 @@ function App() {
     }
   }, [isGameOn]);
 
+  useEffect(() => {
+    if (success > 0 && success === sequence.length) {
+      setSpeed(speed - sequence.length * 2);
+
+      setTimeout(() => {
+        setSuccess(0);
+        setPulses(0);
+        setCurrentGame([]);
+        randomNumber();
+      }, 500);
+    }
+  }, [success]);
+
   return (
     <>
       {isGameOn ? (
