@@ -7,6 +7,14 @@
   background-size: auto 100%;
 }
 
+.game__turn-indicator {
+  position: absolute;
+  left: 49%;
+  translate: -50%;
+  color: rgb(228, 222, 208);
+  text-shadow: 0 2.5px 7px rgb(228, 222, 208);
+}
+
 .game__potions-container {
   width: 68vh;
   height: 79vh;

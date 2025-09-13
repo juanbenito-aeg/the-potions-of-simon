@@ -221,9 +221,11 @@ function App() {
     <>
       {isGameOn ? (
         <div className="game">
-          {/* <div className="header">
-            <h1>Turn {turn}</h1>
-          </div> */}
+          <h1 className="game__turn-indicator">
+            TURN
+            <br />
+            {turn}
+          </h1>
 
           <div className="game__potions-container">
             {potions.map((item, index) => {
