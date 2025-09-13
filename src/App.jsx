@@ -14,10 +14,10 @@ function App() {
   const [play] = useSound(simon, {
     sprite: {
       one: [0, 500],
-      two: [1000, 500],
-      three: [2000, 500],
-      four: [3000, 500],
-      error: [4000, 1000],
+      two: [1900, 500],
+      three: [3800, 600],
+      four: [5700, 500],
+      error: [7700, 800],
     },
   });
 
