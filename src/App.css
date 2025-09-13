@@ -75,3 +75,60 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.game__defeat-dialog {
+  max-width: 600px;
+  border: none;
+  background-color: transparent;
+}
+
+.game__defeat-dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.3);
+}
+
+.game__defeat-dialog:open {
+  animation: fade-in 0.5s ease-out;
+}
+
+.game__defeat-dialog:focus-visible {
+  outline: none;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    display: none;
+    transform: scaleY(0);
+  }
+
+  to {
+    opacity: 1;
+    display: block;
+    transform: scaleY(1);
+  }
+}
+
+.game__defeat-dialog__elems-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.game__defeat-dialog__txt {
+  margin-block-start: 0;
+}
+
+.game__defeat-dialog__btn {
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 0.5);
+  background-color: transparent;
+  border: none;
+  border-radius: 16px;
+  padding: 0.25em 1em;
+  transition: box-shadow 0.5s;
+}
+
+.game__defeat-dialog__btn:hover {
+  box-shadow: 0 5px 10px rgb(0 0 0 / 0.85);
+}

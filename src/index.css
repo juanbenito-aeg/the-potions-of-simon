@@ -1,10 +1,24 @@
 @font-face {
-  font-family: MedievalSharp;
-  src: url("./assets/fonts/MedievalSharp.ttf");
+  font-family: KochAltschrift;
+  src: url("./assets/fonts/KochAltschrift.ttf");
+}
+
+:root {
+  font-size: 22px;
 }
 
 body {
   margin: 0;
   overflow: hidden;
-  font-family: MedievalSharp;
+  font-family: KochAltschrift;
+  text-align: center;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
 }

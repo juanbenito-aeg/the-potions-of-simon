@@ -1,4 +1,5 @@
 import simon from "./assets/sounds/sprite.mp3";
+import defeatDialogImage from "./assets/images/defeat-dialog.png";
 import "./App.css";
 import useSound from "use-sound";
 import { useState, useEffect, useRef } from "react";
@@ -8,6 +9,7 @@ function App() {
   const bluePotionRef = useRef(null);
   const greenPotionRef = useRef(null);
   const purplePotionRef = useRef(null);
+  const defeatDialogRef = useRef(null);
 
   const [play] = useSound(simon, {
     sprite: {
@@ -155,13 +157,17 @@ function App() {
           potions[lastCorrectIndex].ref.current.style.backgroundColor =
             "rgb(0 0 0 / 0.25)";
 
-          setIsGameOn(false);
+          displayDefeatDialog();
         }, speed * 2);
 
         setIsAllowedToPlay(false);
       }
     }
   }, [pulses]);
+
+  const displayDefeatDialog = () => {
+    defeatDialogRef.current.showModal();
+  };
 
   // |||||||||||||||| RESET THE GAME WHEN THE POTION PRESSED IS INCORRECT
   useEffect(() => {
@@ -233,6 +239,33 @@ function App() {
               );
             })}
           </div>
+
+          <dialog
+            closedby="none"
+            ref={defeatDialogRef}
+            className="game__defeat-dialog"
+          >
+            <img src={defeatDialogImage} alt="" />
+
+            <div className="game__defeat-dialog__elems-container">
+              <p className="game__defeat-dialog__txt">
+                One misstep is all it takes. The potions flicker out of order,
+                their glow faltering before dissolving into nothingness. The
+                sequence is broken, and with it, the challenge ends. You have
+                been defeated.
+              </p>
+
+              <button
+                type="button"
+                className="game__defeat-dialog__btn"
+                onClick={() => {
+                  setIsGameOn(false);
+                }}
+              >
+                Return to the main menu
+              </button>
+            </div>
+          </dialog>
         </div>
       ) : (
         <>
