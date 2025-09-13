@@ -1,4 +1,10 @@
+@font-face {
+  font-family: MedievalSharp;
+  src: url("./assets/fonts/MedievalSharp.ttf");
+}
+
 body {
   margin: 0;
   overflow: hidden;
+  font-family: MedievalSharp;
 }
