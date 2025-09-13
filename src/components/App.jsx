@@ -1,8 +1,9 @@
-import simon from "./assets/sounds/sprite.mp3";
-import defeatDialogImage from "./assets/images/defeat-dialog.png";
-import "./App.css";
+import simon from "../assets/sounds/sprite.mp3";
+import defeatDialogImage from "../assets/images/defeat-dialog.png";
+import "../styles/App.css";
 import useSound from "use-sound";
 import { useState, useEffect, useRef } from "react";
+import MainMenu from "./MainMenu";
 
 function App() {
   const redPotionRef = useRef(null);
@@ -270,15 +271,7 @@ function App() {
           </dialog>
         </div>
       ) : (
-        <>
-          <div className="header">
-            <h1>SUPER SIMON</h1>
-
-            <button type="button" onClick={initGame}>
-              START
-            </button>
-          </div>
-        </>
+        <MainMenu onClickPlay={initGame} />
       )}
     </>
   );
