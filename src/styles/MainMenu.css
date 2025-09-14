@@ -17,6 +17,7 @@
 
 .main-menu__title {
   margin: 0;
+  font-size: 4.85vh;
   letter-spacing: 10px;
   color: rgb(249, 178, 35);
   text-shadow: 0 5px 7px rgb(249, 178, 35);
@@ -24,6 +25,7 @@
 
 .main-menu__play-btn {
   cursor: pointer;
+  font-size: 2.4vh;
   font-weight: 700;
   border: none;
   border-radius: 16px;

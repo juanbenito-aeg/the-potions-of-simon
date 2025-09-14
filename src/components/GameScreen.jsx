@@ -184,7 +184,11 @@ function GameScreen({ onClickReturn }) {
         ref={defeatDialogRef}
         className="game-screen__defeat-dialog"
       >
-        <img src={defeatDialogImage} alt="" />
+        <img
+          src={defeatDialogImage}
+          alt=""
+          className="game-screen__defeat-dialog__img"
+        />
 
         <div className="game-screen__defeat-dialog__elems-container">
           <p className="game-screen__defeat-dialog__txt">
