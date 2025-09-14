@@ -1,0 +1,62 @@
+.defeat-dialog {
+  max-width: 600px;
+  font-size: min(calc(1.2vw + 1.2vh), 1rem);
+  border: none;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.defeat-dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.3);
+}
+
+.defeat-dialog:open {
+  animation: fade-in 0.5s ease-out;
+}
+
+.defeat-dialog:focus-visible {
+  outline: none;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    display: none;
+    transform: scaleY(0);
+  }
+
+  to {
+    opacity: 1;
+    display: block;
+    transform: scaleY(1);
+  }
+}
+
+.defeat-dialog__img {
+  width: calc(20vw + 40vh);
+}
+
+.defeat-dialog__elems-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.defeat-dialog__txt {
+  margin-block-start: 0;
+}
+
+.defeat-dialog__btn {
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 0.5);
+  background-color: transparent;
+  border: none;
+  border-radius: 16px;
+  padding: 0.25em 1em;
+  transition: box-shadow 0.5s;
+}
+
+.defeat-dialog__btn:hover {
+  box-shadow: 0 5px 10px rgb(0 0 0 / 0.85);
+}

@@ -1,5 +1,4 @@
 import simon from "../assets/sounds/sprite.mp3";
-import defeatDialogImage from "../assets/images/defeat-dialog.png";
 import "../styles/GameScreen.css";
 import useSound from "use-sound";
 import {
@@ -9,6 +8,7 @@ import {
 } from "../constants";
 import { createParticles } from "../utils";
 import { useState, useEffect, useRef } from "react";
+import DefeatDialog from "./DefeatDialog";
 
 function GameScreen({ onClickReturn }) {
   const defeatDialogRef = useRef(null);
@@ -179,33 +179,7 @@ function GameScreen({ onClickReturn }) {
         })}
       </div>
 
-      <dialog
-        closedby="none"
-        ref={defeatDialogRef}
-        className="game-screen__defeat-dialog"
-      >
-        <img
-          src={defeatDialogImage}
-          alt=""
-          className="game-screen__defeat-dialog__img"
-        />
-
-        <div className="game-screen__defeat-dialog__elems-container">
-          <p className="game-screen__defeat-dialog__txt">
-            One misstep is all it takes. The potions flicker out of order, their
-            glow faltering before dissolving into nothingness. The sequence is
-            broken, and with it, the challenge ends. You have been defeated.
-          </p>
-
-          <button
-            type="button"
-            className="game-screen__defeat-dialog__btn"
-            onClick={onClickReturn}
-          >
-            Return to the main menu
-          </button>
-        </div>
-      </dialog>
+      <DefeatDialog ref={defeatDialogRef} onClickReturn={onClickReturn} />
     </div>
   );
 }
