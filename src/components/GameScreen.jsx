@@ -49,12 +49,16 @@ function GameScreen({ onClickReturn }) {
   ];
 
   useEffect(() => {
-    setTimeout(() => {
-      updateSequenceByGame();
-
-      setTurn(turn + 1);
-    }, 500);
+    setTimeout(startNewTurn, 500);
   }, []);
+
+  function startNewTurn() {
+    updateSequenceByGame();
+    setSequenceByPlayer([]);
+    setIsAllowedToPressPotion(false);
+    setGameSpeed(gameSpeed - sequenceByGame.length * 2);
+    setTurn(turn + 1);
+  }
 
   function updateSequenceByGame() {
     const randomPotionsIndex = Math.floor(
@@ -147,14 +151,6 @@ function GameScreen({ onClickReturn }) {
       }
     }
   }, [sequenceByPlayer]);
-
-  function startNewTurn() {
-    updateSequenceByGame();
-    setSequenceByPlayer([]);
-    setIsAllowedToPressPotion(false);
-    setGameSpeed(gameSpeed - sequenceByGame.length * 2);
-    setTurn(turn + 1);
-  }
 
   function displayDefeatDialog() {
     defeatDialogRef.current.showModal();
