@@ -1,4 +1,4 @@
-.game {
+.game-screen {
   min-height: 100vh;
   background-color: rgb(0 0 0);
   background-image: url("../assets/images/game.png");
@@ -7,7 +7,7 @@
   background-size: auto 100%;
 }
 
-.game__turn-indicator {
+.game-screen__turn-indicator {
   position: absolute;
   left: 49.35%;
   translate: -50%;
@@ -16,7 +16,7 @@
   text-shadow: 0 5px 7px rgb(228, 222, 208);
 }
 
-.game__potions-container {
+.game-screen__potions-container {
   width: 68vh;
   height: 79vh;
   position: absolute;
@@ -25,17 +25,17 @@
   translate: -50% -50%;
 }
 
-.game__potion {
+.game-screen__potion {
   position: absolute;
   background-color: rgb(0 0 0 / 0.25);
 }
 
-.game__potion:hover {
+.game-screen__potion:hover {
   cursor: pointer;
 }
 
-.game__potion-0,
-.game__potion-1 {
+.game-screen__potion-0,
+.game-screen__potion-1 {
   top: 22%;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
@@ -43,20 +43,20 @@
   border-bottom-right-radius: 110px;
 }
 
-.game__potion-0 {
+.game-screen__potion-0 {
   width: 29vh;
   height: 17.5vh;
   left: 0.3%;
 }
 
-.game__potion-1 {
+.game-screen__potion-1 {
   width: 28vh;
   height: 17vh;
   right: 6.5%;
 }
 
-.game__potion-2,
-.game__potion-3 {
+.game-screen__potion-2,
+.game-screen__potion-3 {
   width: 27vh;
   height: 18vh;
   bottom: 0.45%;
@@ -66,11 +66,11 @@
   border-bottom-right-radius: 158px;
 }
 
-.game__potion-2 {
+.game-screen__potion-2 {
   left: 2%;
 }
 
-.game__potion-3 {
+.game-screen__potion-3 {
   right: 7.1%;
 }
 
@@ -85,21 +85,21 @@
   background-size: contain;
 }
 
-.game__defeat-dialog {
+.game-screen__defeat-dialog {
   max-width: 600px;
   border: none;
   background-color: transparent;
 }
 
-.game__defeat-dialog::backdrop {
+.game-screen__defeat-dialog::backdrop {
   background-color: rgb(0 0 0 / 0.3);
 }
 
-.game__defeat-dialog:open {
+.game-screen__defeat-dialog:open {
   animation: fade-in 0.5s ease-out;
 }
 
-.game__defeat-dialog:focus-visible {
+.game-screen__defeat-dialog:focus-visible {
   outline: none;
 }
 
@@ -117,18 +117,18 @@
   }
 }
 
-.game__defeat-dialog__elems-container {
+.game-screen__defeat-dialog__elems-container {
   position: absolute;
   top: 50%;
   left: 50%;
   translate: -50% -50%;
 }
 
-.game__defeat-dialog__txt {
+.game-screen__defeat-dialog__txt {
   margin-block-start: 0;
 }
 
-.game__defeat-dialog__btn {
+.game-screen__defeat-dialog__btn {
   cursor: pointer;
   box-shadow: 0 5px 10px rgb(0 0 0 / 0.5);
   background-color: transparent;
@@ -138,6 +138,6 @@
   transition: box-shadow 0.5s;
 }
 
-.game__defeat-dialog__btn:hover {
+.game-screen__defeat-dialog__btn:hover {
   box-shadow: 0 5px 10px rgb(0 0 0 / 0.85);
 }
