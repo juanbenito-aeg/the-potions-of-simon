@@ -1,0 +1,11 @@
+const AppState = {
+  MAIN_MENU: 0,
+  GAME_SCREEN: 1,
+};
+
+const MIN_POTIONS_INDEX = 0;
+const MAX_POTIONS_INDEX = 3;
+
+const INITIAL_GAME_SPEED = 400;
+
+export { AppState, MIN_POTIONS_INDEX, MAX_POTIONS_INDEX, INITIAL_GAME_SPEED };
