@@ -49,7 +49,7 @@ function GameScreen({ onClickReturn }) {
   ];
 
   useEffect(() => {
-    setTimeout(startNewTurn, 500);
+    setTimeout(startNewTurn, 1000);
   }, []);
 
   function startNewTurn() {
