@@ -11,5 +11,6 @@
 }
 
 .sound-switch:hover {
+  cursor: pointer;
   scale: 0.85;
 }
