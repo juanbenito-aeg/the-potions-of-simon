@@ -18,7 +18,7 @@ function GameScreen({ onClickReturn }) {
 
   const [soundData, setSoundData] = useState({
     soundURL: murmur,
-    volume: 0.1,
+    volume: 0.25,
   });
   const [sequenceByGame, setSequenceByGame] = useState([]);
   const [sequenceByPlayer, setSequenceByPlayer] = useState([]);

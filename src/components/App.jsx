@@ -11,7 +11,7 @@ function App() {
   const [appState, setAppState] = useState(AppState.MAIN_MENU);
   const [isSoundSwitchOn, setIsSoundSwitchOn] = useState(false);
 
-  function handleClickPlay() {
+  function handleClickPlayOrReturn() {
     setAppState(1 - appState);
   }
 
@@ -23,9 +23,9 @@ function App() {
     <IsSoundSwitchOnContext value={isSoundSwitchOn}>
       <HandleClickSoundSwitchContext value={handleClickSoundSwitch}>
         {appState === AppState.MAIN_MENU ? (
-          <MainMenu onClickPlay={handleClickPlay} />
+          <MainMenu onClickPlay={handleClickPlayOrReturn} />
         ) : (
-          <GameScreen onClickReturn={handleClickPlay} />
+          <GameScreen onClickReturn={handleClickPlayOrReturn} />
         )}
       </HandleClickSoundSwitchContext>
     </IsSoundSwitchOnContext>
