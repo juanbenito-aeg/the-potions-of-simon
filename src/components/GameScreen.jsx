@@ -1,4 +1,6 @@
+import murmur from "../assets/sounds/murmur.mp3";
 import simon from "../assets/sounds/sprite.mp3";
+import defeatBackgroundMusic from "../assets/sounds/defeat-background-music.mp3";
 import "../styles/GameScreen.css";
 import useSound from "use-sound";
 import {
@@ -8,11 +10,16 @@ import {
 } from "../constants";
 import { createParticles } from "../utils";
 import { useState, useEffect, useRef } from "react";
+import SoundSwitch from "./SoundSwitch";
 import DefeatDialog from "./DefeatDialog";
 
 function GameScreen({ onClickReturn }) {
   const defeatDialogRef = useRef(null);
 
+  const [soundData, setSoundData] = useState({
+    soundURL: murmur,
+    volume: 0.1,
+  });
   const [sequenceByGame, setSequenceByGame] = useState([]);
   const [sequenceByPlayer, setSequenceByPlayer] = useState([]);
   const [isAllowedToPressPotion, setIsAllowedToPressPotion] = useState(false);
@@ -154,10 +161,17 @@ function GameScreen({ onClickReturn }) {
 
   function displayDefeatDialog() {
     defeatDialogRef.current.showModal();
+
+    setSoundData({
+      soundURL: defeatBackgroundMusic,
+      volume: 1,
+    });
   }
 
   return (
     <div className="game-screen">
+      <SoundSwitch {...soundData} />
+
       <h1 className="game-screen__turn-indicator">
         TURN
         <br />
