@@ -1,0 +1,15 @@
+.sound-switch {
+  width: calc(1.25vw + 2.5vh);
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0.5em;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  transition: scale 0.5s;
+}
+
+.sound-switch:hover {
+  scale: 0.85;
+}
