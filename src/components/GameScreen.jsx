@@ -138,10 +138,15 @@ function GameScreen({ onClickReturn }) {
         currentPlayerPotionIndex === currentCorrectPotionIndex &&
         currentPresses === sequenceByGame.length
       ) {
-        // |||||||||||||||| IF THE SEQUENCE BY THE GAME HAS BEEN CORRECTLY REPLICATED, START A NEW TURN
+        // |||||||||||| THE SEQUENCE BY THE GAME HAS BEEN CORRECTLY REPLICATED
+
+        // |||||||| IF THE CURRENT GAME SCORE (NUMBER OF COMPLETED TURNS) IS THE BEST YET, SAVE IT TO THE LOCAL STORAGE
+        updateBestScore();
+
+        // |||||||| START A NEW TURN
         startNewTurn();
       } else if (currentPlayerPotionIndex !== currentCorrectPotionIndex) {
-        // |||||||||||||||| IF THE POTION PRESSED IS INCORRECT, END THE GAME
+        // |||||||||||| IF THE POTION PRESSED IS INCORRECT, END THE GAME
 
         play({ id: "incorrectPotion" });
 
@@ -158,12 +163,17 @@ function GameScreen({ onClickReturn }) {
         }, gameSpeed * 2);
 
         setIsAllowedToPressPotion(false);
-
-        // |||||||||||||||| IF THE SCORE (NUMBER OF TURNS) IS THE BEST YET, SAVE IT TO THE LOCAL STORAGE
-        updateBestScore();
       }
     }
   }, [sequenceByPlayer]);
+
+  function updateBestScore() {
+    const currentGameScore = turn;
+
+    if (currentGameScore > localStorage.getItem("bestScore")) {
+      localStorage.setItem("bestScore", currentGameScore);
+    }
+  }
 
   function displayDefeatDialog() {
     defeatDialogRef.current.showModal();
@@ -172,14 +182,6 @@ function GameScreen({ onClickReturn }) {
       soundURL: defeatBackgroundMusic,
       volume: 1,
     });
-  }
-
-  function updateBestScore() {
-    const currentGameScore = sequenceByPlayer.length;
-
-    if (currentGameScore > localStorage.getItem("bestScore")) {
-      localStorage.setItem("bestScore", currentGameScore);
-    }
   }
 
   return (
