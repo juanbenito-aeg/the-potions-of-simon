@@ -56,15 +56,18 @@ function GameScreen({ onClickReturn }) {
   ];
 
   useEffect(() => {
-    setTimeout(startNewTurn, 1000);
+    setTimeout(startNewTurn, 500);
   }, []);
 
   function startNewTurn() {
-    updateSequenceByGame();
-    setSequenceByPlayer([]);
     setIsAllowedToPressPotion(false);
-    setGameSpeed(gameSpeed - sequenceByGame.length * 2);
-    setTurn(turn + 1);
+
+    setTimeout(() => {
+      updateSequenceByGame();
+      setSequenceByPlayer([]);
+      setGameSpeed(gameSpeed - sequenceByGame.length * 2);
+      setTurn(turn + 1);
+    }, 500);
   }
 
   function updateSequenceByGame() {
@@ -136,7 +139,7 @@ function GameScreen({ onClickReturn }) {
         currentPresses === sequenceByGame.length
       ) {
         // |||||||||||||||| IF THE SEQUENCE BY THE GAME HAS BEEN CORRECTLY REPLICATED, START A NEW TURN
-        setTimeout(startNewTurn, 500);
+        startNewTurn();
       } else if (currentPlayerPotionIndex !== currentCorrectPotionIndex) {
         // |||||||||||||||| IF THE POTION PRESSED IS INCORRECT, END THE GAME
 
