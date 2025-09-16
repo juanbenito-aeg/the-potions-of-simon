@@ -158,6 +158,9 @@ function GameScreen({ onClickReturn }) {
         }, gameSpeed * 2);
 
         setIsAllowedToPressPotion(false);
+
+        // |||||||||||||||| IF THE SCORE (NUMBER OF TURNS) IS THE BEST YET, SAVE IT TO THE LOCAL STORAGE
+        updateBestScore();
       }
     }
   }, [sequenceByPlayer]);
@@ -171,15 +174,25 @@ function GameScreen({ onClickReturn }) {
     });
   }
 
+  function updateBestScore() {
+    const currentGameScore = sequenceByPlayer.length;
+
+    if (currentGameScore > localStorage.getItem("bestScore")) {
+      localStorage.setItem("bestScore", currentGameScore);
+    }
+  }
+
   return (
     <div className="game-screen">
       <SoundSwitch {...soundData} />
 
-      <h1 className="game-screen__turn-indicator">
-        TURN
-        <br />
-        {turn}
-      </h1>
+      <div className="game-screen__game-data-container">
+        <h2 className="game-screen__turn">Turn: {turn}</h2>
+
+        <h2 className="game-screen__best-score">
+          Best Score: {localStorage.getItem("bestScore") || 0}
+        </h2>
+      </div>
 
       <div className="game-screen__potions-container">
         {potionsData.map((item, index) => {
