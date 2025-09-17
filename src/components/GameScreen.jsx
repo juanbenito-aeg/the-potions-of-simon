@@ -89,7 +89,7 @@ function GameScreen({ onClickReturn }) {
 
         setTimeout(() => {
           potionsData[item].ref.current.style.backgroundColor =
-            "rgb(0 0 0 / 0.25)";
+            "rgb(0 0 0 / 0.35)";
 
           if (index === sequenceByGame.length - 1) {
             setIsAllowedToPressPotion(true);
@@ -119,7 +119,7 @@ function GameScreen({ onClickReturn }) {
 
       setTimeout(() => {
         potionsData[index].ref.current.style.backgroundColor =
-          "rgb(0 0 0 / 0.25)";
+          "rgb(0 0 0 / 0.35)";
 
         setSequenceByPlayer([...sequenceByPlayer, index]);
       }, gameSpeed / 2);
@@ -157,7 +157,7 @@ function GameScreen({ onClickReturn }) {
         setTimeout(() => {
           potionsData[
             currentCorrectPotionIndex
-          ].ref.current.style.backgroundColor = "rgb(0 0 0 / 0.25)";
+          ].ref.current.style.backgroundColor = "rgb(0 0 0 / 0.35)";
 
           displayDefeatDialog();
         }, gameSpeed * 2);
