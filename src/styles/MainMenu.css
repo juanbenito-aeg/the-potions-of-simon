@@ -12,7 +12,7 @@
   flex-direction: column;
   align-items: center;
   gap: 2em;
-  padding-block-start: 2em;
+  padding: 4.25em 0.85em;
 }
 
 .main-menu__title {
