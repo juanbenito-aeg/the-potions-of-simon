@@ -10,7 +10,9 @@
   transition: scale 0.5s;
 }
 
-.sound-switch:hover {
-  cursor: pointer;
-  scale: 0.85;
+@media (hover: hover) {
+  .sound-switch:hover {
+    cursor: pointer;
+    scale: 0.85;
+  }
 }
