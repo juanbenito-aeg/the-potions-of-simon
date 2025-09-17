@@ -14,6 +14,7 @@ import SoundSwitch from "./SoundSwitch";
 import DefeatDialog from "./DefeatDialog";
 
 function GameScreen({ onClickReturn }) {
+  const bestScoreRef = useRef(null);
   const defeatDialogRef = useRef(null);
 
   const [soundData, setSoundData] = useState({
@@ -172,6 +173,8 @@ function GameScreen({ onClickReturn }) {
 
     if (currentGameScore > localStorage.getItem("bestScore")) {
       localStorage.setItem("bestScore", currentGameScore);
+
+      bestScoreRef.current.className += " game-screen__best-score--animated";
     }
   }
 
@@ -191,7 +194,7 @@ function GameScreen({ onClickReturn }) {
       <div className="game-screen__game-data-container">
         <h2 className="game-screen__turn">Turn: {turn}</h2>
 
-        <h2 className="game-screen__best-score">
+        <h2 ref={bestScoreRef} className="game-screen__best-score">
           Best Score: {localStorage.getItem("bestScore") || 0}
         </h2>
       </div>
