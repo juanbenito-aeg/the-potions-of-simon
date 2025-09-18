@@ -50,6 +50,7 @@
 .defeat-dialog__btn {
   cursor: pointer;
   box-shadow: 0 5px 10px rgb(0 0 0 / 0.5);
+  color: black;
   background-color: transparent;
   border: none;
   border-radius: 16px;
@@ -59,4 +60,8 @@
 
 .defeat-dialog__btn:hover {
   box-shadow: 0 5px 10px rgb(0 0 0 / 0.85);
+}
+
+.defeat-dialog__btn:focus-visible {
+  outline: none;
 }

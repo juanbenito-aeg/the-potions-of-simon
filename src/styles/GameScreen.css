@@ -22,7 +22,7 @@
   margin: 0.75em;
   border-radius: 16px;
   padding: 0.5em 0.65em;
-  font-size: min(calc(0.9dvw + 1.8dvh), 1.5em);
+  font-size: min(calc(1.15dvw + 2.3dvh), 1.5em);
   letter-spacing: 10px;
   color: rgb(140, 133, 112);
   box-shadow: 0 0 7.5px 2px rgb(140, 133, 112) inset;
@@ -34,8 +34,7 @@
 
 .game-screen__best-score--animated {
   border: 5px solid transparent;
-  background:
-    padding-box url("../assets/images/game-screen-data-container.png")
+  background: padding-box url("../assets/images/game-screen-data-container.png")
       center/cover no-repeat,
     border-box linear-gradient(var(--angle), rgb(140, 133, 112), #0000);
   animation: rotate 2s linear infinite;
